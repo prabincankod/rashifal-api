@@ -21,13 +21,15 @@
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
-  },
+    "url": "https://github.com/prabin21/prabin"},
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
-    "express"
+    "hamropatro",
+    "express",
+    "rashifal-api",
+    "daily-rashifal",
+    "nepali-rashifal"
   ],
   "devDependencies": {},
   "author": "prabin"
