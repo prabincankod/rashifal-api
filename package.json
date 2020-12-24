@@ -12,7 +12,10 @@
   "dependencies": {
     "express": "^4.17.1",
     "request": "^2.88.2",
-    "cheerio": "^0.22.0"
+    "cheerio": "^0.22.0",
+    "simple-proxy-scraper": "^0.1.2",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5"
   },
   "engines": {
     "node": "12.x"
