@@ -9,6 +9,11 @@ app.get("/", (request, response) => {
   response.send("imma done ");
 });
 
+app.get("/info",(request,response) => {
+response.send("<h1>welcome bimochan gotaame</h1>");
+});
+
+
 
 app.get("/:sign",(req,resp) => {
   
