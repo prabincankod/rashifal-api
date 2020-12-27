@@ -8,7 +8,7 @@ const path = require("path");
 
 app.get("/", (request, response) => {
   response.sendFile(path.resolve("views","index.html"));
-
+});
 app.get("/info",(request,response) => {
 response.send("<h1>welcome bimochan gotaame</h1>");
 });
@@ -58,7 +58,7 @@ case "capricorn":
     break;
 
 }
-console.log(n)
+conlsole.log(n)
 
 
 
@@ -67,7 +67,7 @@ console.log(n)
 console.log(url);
 axios.get(url).then((res) =>{
     
-        const $ = cheerio.load(res.data);
+      const $ = cheerio.load(res.data);
         const desc= $(".desc")
           .find("p")
           .text();
@@ -81,7 +81,6 @@ resp.send(obj);
   
 });
 });
-
 app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+ console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
