@@ -1,0 +1,10 @@
+"name": "Temporas",
+  "short_name": "Temporas",
+  "theme_color": "#222831",
+  "background_color": "#ffad17",
+  "display": "standalone",
+  "Scope": "",
+  "start_url": "/index.html",
+  "icons": [
+    // A lot of icons
+  ]

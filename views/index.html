@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A cool thing made with Glitch">
-    <title>Welcome to Rashifal-API </title>
-      </head>
-  <body>
-   
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name="theme-color" content="#222831">
+  <link rel='manifest' href='./manifest.json'>
 
-
-      </body>
-</html>
+  <script>
+    // Registering our Service worker
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js', { scope: './' })
+    }
+  </script>
+</head>
+<body>
+  <div class="hero">
+    <h1>Temporas</h1>
+    <h2>Take your medicine my friend</h2>
+    <div id="status"></div>
+    <button id="unsubscribe">unsubscribe</button>
+  </div>
+</body>
