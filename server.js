@@ -5,11 +5,6 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 app.use(cors());
 const path = require("path");
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(express.static('public'));
-
-app.get('/public');
 
 
 app.get("/", (request, response) => {
