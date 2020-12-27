@@ -2,7 +2,7 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
+  "name": "rashifal-api",
   "version": "0.0.1",
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
@@ -11,22 +11,26 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "request": "^2.88.2",
     "cheerio": "^0.22.0",
-    "simple-proxy-scraper": "^0.1.2",
     "axios": "^0.21.1",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/prabin21/prabin"
   },
   "license": "MIT",
   "keywords": [
     "node",
-    "glitch",
-    "express"
-  ]
+    "hamropatro",
+    "express",
+    "rashifal-api",
+    "daily-rashifal",
+    "nepali-rashifal"
+  ],
+  "devDependencies": {},
+  "author": "prabin"
 }

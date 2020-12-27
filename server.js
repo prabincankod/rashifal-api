@@ -3,10 +3,11 @@ const app = express();
 const cors = require("cors");
 const axios = require("axios");
 const cheerio = require("cheerio");
+const path= require("path");
 app.use(cors());
 
 app.get("/", (request, response) => {
-  response.send("imma done ");
+  response.sendFile(path.resolve("views","index.html"));
 });
 
 
@@ -76,6 +77,7 @@ resp.send(obj);
   
 });
 });
-const listener = app.listen(process.env.PORT, () => {
-  console.log("Your app is listening on port " + listener.address().port);
+
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
