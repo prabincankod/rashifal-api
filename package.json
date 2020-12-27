@@ -10,16 +10,18 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "cheerio": "^0.22.0",
     "axios": "^0.21.1",
-    "cors": "^2.8.5"
+    "cheerio": "^0.22.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://github.com/prabin21/prabin"},
+    "url": "https://github.com/prabin21/prabin"
+  },
   "license": "MIT",
   "keywords": [
     "node",

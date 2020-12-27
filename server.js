@@ -4,10 +4,10 @@ const cors = require("cors");
 const axios = require("axios");
 const cheerio = require("cheerio");
 app.use(cors());
+const path = require("path");
 
 app.get("/", (request, response) => {
-  response.send("imma done ");
-});
+  response.sendFile(path.resolve("views","index.html"));
 
 app.get("/info",(request,response) => {
 response.send("<h1>welcome bimochan gotaame</h1>");
