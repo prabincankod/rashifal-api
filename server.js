@@ -58,8 +58,7 @@ case "capricorn":
     break;
 
 }
-conlsole.log(n)
-
+console.log(n);
 
 
 
