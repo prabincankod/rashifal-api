@@ -1,4 +1,10 @@
 <h1 align="center" > RashiFal-API</h1>
+<p>A simple server that serves json of different horoscope predictions in Nepali language.</p>
 
-A server that serves json of different horoscope predictions in Nepali language.
+## ENDPOINTS:
+```sh
+https://rashifal-api.herokuapp.com/{your_sunsign}  
+```
+
+
 ## Made with ❤️ by [Prabin Subedi](https://www.facebook.com/coder.pravin)
