@@ -1,4 +1,4 @@
-<h1 align="center" > RashiFal-API web</h1>
+<h1 align="center" > RashiFal-API</h1>
 <p>A simple server that serves json of different horoscope predictions in Nepali language.</p>
 
 ## ENDPOINTS:
