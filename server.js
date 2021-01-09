@@ -11,7 +11,7 @@ app.get("/", (request, response) => {
   response.sendFile(path.resolve("views","index.html"));
 });
 app.get("/info",(request,response) => {
-response.send("<h1>welcome bimochan gotaame</h1>");
+response.send("<h1>Why i am defining this route</h1>");
 });
 
 
