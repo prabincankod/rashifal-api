@@ -85,6 +85,6 @@ resp.send(obj);
   
 });
 });
-app.listen(port, () => {
+app.listen(3000, () => {
   console.log("App listening at https://rashifal-api.herokuapp.com")
 })
