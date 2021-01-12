@@ -15,7 +15,7 @@ app.get("/", (request, response) => {
   response.sendFile(path.resolve("views","index.html"));
 });
 app.get("/info",(request,response) => {
-response.send(infobj);
+response.send("b");
 });
 
 
