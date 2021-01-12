@@ -82,5 +82,5 @@ resp.send(obj);
 });
 });
 app.listen(port, () => {
-  console.log(`Example app listening at https://rashifal-api.herokuapp.com on port no.${port}`)
+  console.log("App listening at https://rashifal-api.herokuapp.com on port no.${port}")
 })
