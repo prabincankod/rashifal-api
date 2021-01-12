@@ -6,7 +6,13 @@ const cheerio = require("cheerio");
 app.use(cors());
 const path = require("path");
 const port = 3000;
+var infobj = {
+"Author":"Prabin Subedi",
+"github_repo":"https://github.com/prabincodes/rashifal-api",
 
+
+
+}
 
 
 
@@ -15,7 +21,7 @@ app.get("/", (request, response) => {
   response.sendFile(path.resolve("views","index.html"));
 });
 app.get("/info",(request,response) => {
-response.send("b");
+response.send(infobj);
 });
 
 
