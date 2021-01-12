@@ -5,7 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 app.use(cors());
 const path = require("path");
-
+const port = 3000;
 
 app.get("/", (request, response) => {
   response.sendFile(path.resolve("views","index.html"));
@@ -81,6 +81,6 @@ resp.send(obj);
   
 });
 });
-app.listen(process.env.PORT || 3000, function(){
- console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(port, () => {
+  console.log(`Example app listening at https://rashifal-api.herokuapp.com on port no.${port}`)
+})
