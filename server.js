@@ -9,10 +9,11 @@ const port = 3000;
 var infobj = {
 "Author":"Prabin Subedi",
 "github_repo":"https://github.com/prabincodes/rashifal-api",
-
+"ip_address":"working on it"
 
 
 }
+
 
 
 
