@@ -61,7 +61,6 @@ app.get("/api/:sign", (req, resp) => {
       n = "meen";
       break;
   }
-  console.log(n);
 
   if ((e = n)) {
     const url = "https://www.hamropatro.com/rashifal/daily/" + n;
@@ -71,10 +70,11 @@ app.get("/api/:sign", (req, resp) => {
       const desc = $(".desc")
         .find("p")
         .text();
-      console.log(desc);
+
+      const sc = desc.replace("\n", "");
       const obj = {
         sun_sign: n,
-        prediction: desc
+        prediction: sc
       };
       resp.send(obj);
     });
