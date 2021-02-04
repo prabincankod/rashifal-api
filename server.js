@@ -1,4 +1,5 @@
 const express = require("express");
+
 const app = express();
 const cors = require("cors");
 const axios = require("axios");
@@ -7,91 +8,84 @@ app.use(cors());
 const path = require("path");
 const port = 3000;
 var infobj = {
-"Author":"Prabin Subedi",
-"github_repo":"https://github.com/prabincodes/rashifal-api",
-"ip_address":"working on it"
-
-
-}
-
-
-
-
+  Author: "PrabinSubedi",
+  github_repo: "https://github.com/prabincodes/rashifal-api",
+  ip_address: "working on it"
+};
 
 app.get("/", (request, response) => {
-  response.sendFile(path.resolve("views","index.html"));
+  response.sendFile(path.resolve("views", "index.html"));
 });
-app.get("/info",(request,response) => {
-response.send(infobj);
+app.get("/info", (request, response) => {
+  response.send(infobj);
 });
 
+app.get("/api/:sign", (req, resp) => {
+  var n;
+  var e = req.params.sign;
 
+  switch (e) {
+    case "aries":
+      n = "mesh";
+      break;
+    case "taurus":
+      n = "brish";
+      break;
+    case "gemini":
+      n = "mithun";
+      break;
+    case "cancer":
+      n = "karkat";
+      break;
+    case "leo":
+      n = "singha";
+      break;
+    case "virgo":
+      n = "kanya";
+      break;
+    case "libra":
+      n = "tula";
+      break;
+    case "scorpio":
+      n = "brischik";
+      break;
+    case "sagittarius":
+      n = "dhanu";
+      break;
+    case "capricorn":
+      n = "makar";
+    case "aquarius":
+      n = "kumbha";
+      break;
+    case "pisces":
+      n = "meen";
+      break;
+  }
+  console.log(n);
 
-app.get("/:sign",(req,resp) => {
-  
-var n;
-var e = req.params.sign;
-
-switch(e) {
-  case "aries":
-    n= "mesh";
-    break;
-  case "taurus":
-    n= "brish";
-    break;
-  case "gemini":
-    n = "mithun";
-    break;
-    case "cancer":
-    n= "karkat";
-    break;
-    case "leo":
-    n= "singha";
-    break;
-    case "virgo":
-    n="kanya";
-    break;
-    case "libra":
-    n= "tula";
-    break;
-case "scorpio":
-    n= "brischik";
-    break;
-case "sagittarius":
-    n= "dhanu";
-    break;
-case "capricorn":
-    n= "makar";
-    case "aquarius":
-    n= "kumbha";
-    break;
-    case "pisces":
-    n= "meen";
-    break;
-
-}
-console.log(n);
-
-
-
-  const url = "https://www.hamropatro.com/rashifal/daily/"+n;
-console.log(url);
-axios.get(url).then((res) =>{
-    
+  if ((e = n)) {
+    const url = "https://www.hamropatro.com/rashifal/daily/" + n;
+    console.log(url);
+    axios.get(url).then(res => {
       const $ = cheerio.load(res.data);
-        const desc= $(".desc")
-          .find("p")
-          .text();
-        console.log(desc);
-const obj = {
-"sun_sign":n,
-"prediction":desc
-
-}
-resp.send(obj);
-  
+      const desc = $(".desc")
+        .find("p")
+        .text();
+      console.log(desc);
+      const obj = {
+        sun_sign: n,
+        prediction: desc
+      };
+      resp.send(obj);
+    });
+  } else {
+    resp.send("good");
+  }
 });
-});
-app.listen(process.env.PORT || 3000, function(){
- console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(process.env.PORT || 3000, function() {
+  console.log(
+    "Express server listening on port %d in %s mode",
+    this.address().port,
+    app.settings.env
+  );
 });
