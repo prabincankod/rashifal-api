@@ -79,7 +79,11 @@ app.get("/api/:sign", (req, resp) => {
       resp.send(obj);
     });
   } else {
-    resp.send("good");
+    const failobj = {
+      message: req.params.sign + " is not meant to be a sunign"
+    };
+
+    resp.send(failobj);
   }
 });
 app.listen(process.env.PORT || 3000, function() {
