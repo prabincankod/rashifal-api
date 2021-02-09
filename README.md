@@ -3,12 +3,12 @@
 
 ## ENDPOINTS:
 ```sh
-https://rashifal-api.herokuapp.com/{your_sunsign}  
+https://rashifal-api.herokuapp.com/api/{your_sunsign}  
 ```
 
 ## USAGE:
 ```sh
-GET https://rashifal-api.herokuapp.com/leo  
+GET https://rashifal-api.herokuapp.com/api/leo  
 ```
 > RESPONSE:
 
@@ -16,7 +16,7 @@ GET https://rashifal-api.herokuapp.com/leo
 
 {
   "sun_sign":"singha",
-  "prediction":"\nअरुलाई प्रभावित पारेर काम बन्नेछ । बन्धु बान्धवबाट सहयोग मिल्नेछ । शैक्षिक क्षेत्रमा सफलता मिल्नेछ । मुद्दा–मामिलामा पनि विजयी भइनेछ । "
+  "prediction":"अरुलाई प्रभावित पारेर काम बन्नेछ । बन्धु बान्धवबाट सहयोग मिल्नेछ । शैक्षिक क्षेत्रमा सफलता मिल्नेछ । मुद्दा–मामिलामा पनि विजयी भइनेछ । "
 }
 
 
