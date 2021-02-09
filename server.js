@@ -84,7 +84,7 @@ const date = $(".articleTitleNew")
         date: dt[2] + " " + dt[1] + " " + dt[0] + " " + dt[3],
         sun_sign: dt[4],
         prediction: sc,
-        ip:aip
+        ip:aip[0]
       };
       resp.send(obj);
     });
