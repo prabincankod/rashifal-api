@@ -1,5 +1,5 @@
 <h1 align="center" > RashiFal-API</h1>
-<p align="center">A simple server that serves json of different horoscope predictions in Nepali language.</p><hr>
+<p align="center">A simple server that parses and serves json of different horoscope predictions in Nepali language from HamroPatro.com</p><hr>
 
 ## ENDPOINTS:
 ```sh
