@@ -70,8 +70,17 @@ app.get("/api/:sign", (req, resp) => {
       const desc = $(".desc")
         .find("p")
         .text();
+const date = $(".articleTitleNew")
+        .find("span")
+        .text();
+      const dt = date.split(" ", 4);
 
       const sc = desc.replace("\n", "");
+      const obj = {
+        date: dt[2] + " " + dt[1] + " " + dt[0] + " " + dt[3],
+        sun_sign: n,
+        prediction: sc
+      };
       const obj = {
         sun_sign: n,
         prediction: sc
