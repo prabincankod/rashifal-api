@@ -81,10 +81,6 @@ const date = $(".articleTitleNew")
         sun_sign: n,
         prediction: sc
       };
-      const obj = {
-        sun_sign: n,
-        prediction: sc
-      };
       resp.send(obj);
     });
   } else {
