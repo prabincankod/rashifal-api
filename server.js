@@ -23,7 +23,11 @@ app.get("/info", (request, response) => {
 app.get("/api/:sign", (req, resp) => {
   var n;
   var e = req.params.sign;
-
+let ip =
+      req.headers["x-forwarded-for"] ||
+      req.connection.remoteAddress ||
+      req.socket.remoteAddress;
+    const aip = ip.split(",", 1);
   switch (e) {
     case "aries":
       n = "mesh";
@@ -79,7 +83,8 @@ const date = $(".articleTitleNew")
       const obj = {
         date: dt[2] + " " + dt[1] + " " + dt[0] + " " + dt[3],
         sun_sign: dt[4],
-        prediction: sc
+        prediction: sc,
+        ip:aip
       };
       resp.send(obj);
     });
