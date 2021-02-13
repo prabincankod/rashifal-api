@@ -90,7 +90,7 @@ const date = $(".articleTitleNew")
     });
   } else {
     const failobj = {
-      message: req.params.sign + " is not meant to be a sunign"
+      message: req.params.sign + " is meant to be a sunign"
     };
 
     resp.send(failobj);
