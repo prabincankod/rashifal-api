@@ -7,7 +7,7 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -15,8 +15,8 @@
     "cheerio": "^0.22.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "path": "^0.12.7",
-    "image-to-base64": "^2.1.0"
+    "image-to-base64": "^2.1.0",
+    "path": "^0.12.7"
   },
   "engines": {
     "node": "12.x"
@@ -33,6 +33,8 @@
     "daily-rashifal",
     "nepali-rashifal"
   ],
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
   "author": "prabin"
 }

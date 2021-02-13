@@ -19,6 +19,11 @@ app.get("/", (request, response) => {
 app.get("/info", (request, response) => {
   response.send(infobj);
 });
+app.get("/hehe",(req,res)=>{
+	res.send("nefol")
+});
+
+
 
 app.get("/api/:sign", (req, resp) => {
   var n;
