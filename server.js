@@ -101,6 +101,93 @@ const date = $(".articleTitleNew")
     resp.send(failobj);
   }
 });
+
+app.get("/all", (req, resp) => {
+  const url = "https://www.hamropatro.com/rashifal/daily/";
+  axios.get(url).then(res => {
+    const $ = cheerio.load(res.data);
+
+    const da = [
+      {
+        sunsign: $("h3")
+          .eq(0)
+          .text(),
+        prediction: $(".desc").find("p").eq(0).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(1)
+          .text(),
+        prediction: $(".desc").find("p").eq(1).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(2)
+          .text(),
+        prediction: $(".desc").find("p").eq(2).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(3)
+          .text(),
+        prediction: $(".desc").find("p").eq(3).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(4)
+          .text(),
+        prediction: $(".desc").find("p").eq(4).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(5)
+          .text(),
+        prediction: $(".desc").find("p").eq(5).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(6)
+          .text(),
+        prediction: $(".desc").find("p").eq(6).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(7)
+          .text(),
+        prediction: $(".desc").find("p").eq(7).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(8)
+          .text(),
+        prediction: $(".desc").find("p").eq(8).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(9)
+          .text(),
+        prediction: $(".desc").find("p").eq(9).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(10)
+          .text(),
+        prediction: $(".desc").find("p").eq(10).text().split(")",2)[1]
+      },
+      {
+        sunsign: $("h3")
+          .eq(11)
+          .text(),
+        prediction: $(".desc").find("p").eq(11).text().split(")",2)[1]
+      }
+    ];
+
+    resp.send(da);
+  });
+});
+
+
+
 app.listen(process.env.PORT || 3000, function() {
   console.log(
     "Express serve r listening on port %d in %s mode",
