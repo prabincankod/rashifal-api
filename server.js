@@ -20,7 +20,7 @@ app.get("/info", (request, response) => {
   response.send(infobj);
 });
 app.get("/hehe",(req,res)=>{
-	res.send("nefol")
+	res.send("bipin")
 });
 
 
