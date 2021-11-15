@@ -15,7 +15,7 @@
     "cheerio": "^0.22.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "image-to-base64": "^2.1.0",
+    "image-to-base64": "^2.2.0",
     "path": "^0.12.7"
   },
   "engines": {
