@@ -63,6 +63,7 @@ let ip =
       break;
     case "capricorn":
       n = "makar";
+      break;
     case "aquarius":
       n = "kumbha";
       break;
