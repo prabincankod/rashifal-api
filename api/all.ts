@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+
 import axios from "axios";
 
 import cheerio from "cheerio";
@@ -12,7 +13,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       prediction: $(".desc").find("p").eq(i).text().split(")", 2)[1],
     };
     data.push(eachData);
-    console.log(eachData);
   }
   res.status(200).json(data);
 };
