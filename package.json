@@ -1,32 +1,22 @@
 {
   "name": "rashifal-api",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "axios": "^0.21.1",
-    "cheerio": "^0.22.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "path": "^0.12.7"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {},
   "repository": {
-    "url": "https://github.com/prabincankod/rashifal-api"
+    "type": "git",
+    "url": "git+https://github.com/prabincankod/rashifal-api.git"
   },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "hamropatro",
-    "express",
-    "rashifal-api",
-    "daily-rashifal",
-    "nepali-rashifal"
-  ],
-  "devDependencies": {
-    "nodemon": "^2.0.7"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prabincankod/rashifal-api/issues"
   },
-  "author": "prabin"
+  "homepage": "https://github.com/prabincankod/rashifal-api#readme",
+  "dependencies": {
+    "@vercel/node": "^1.12.1",
+    "axios": "^0.25.0",
+    "cheerio": "^1.0.0-rc.10"
+  }
 }

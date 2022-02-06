@@ -1,20 +1,19 @@
-//expressjs route
-const express = require("express");
-const router = express.Router();
-const axios = require("axios");
-const cheerio = require("cheerio");
-router.get("/:span/:sign", (req, resp) => {
-  const spans = ["daily", "weekly", "monthly", "yearly"];
+import type { VercelRequest, VercelResponse } from "@vercel/node";
+import axios from "axios";
+import cheerio from "cheerio";
+
+export default async (req: VercelRequest, response: VercelResponse) => {
+  const spaen: Array<string> = ["daily", "weekly", "monthly", "yearly"];
 
   let n;
-  let e = req.params.sign;
-  const f = req.params.span;
+
+  const { span, sign } = req.query;
   const obj1 = {
     message: "/api/:span can only have daily, weekly, monthly or yearly",
   };
-  if (!spans.includes(f.toLowerCase())) return resp.send(obj1);
+  if (!spaen.includes(span)) return response.send(obj1);
   else {
-    switch (e) {
+    switch (sign) {
       case "aries":
         n = "mesh";
         break;
@@ -52,14 +51,9 @@ router.get("/:span/:sign", (req, resp) => {
         n = "meen";
         break;
     }
-    let ip =
-      req.headers["x-forwarded-for"] ||
-      req.connection.remoteAddress ||
-      req.socket.remoteAddress;
-    const aip = ip.split(",", 1);
 
-    if ((e = n)) {
-      const url = `https://www.hamropatro.com/rashifal/${f}/${n}`;
+    try {
+      const url = `https://www.hamropatro.com/rashifal/${span}/${n}`;
       console.log(url);
       axios.get(url).then((res) => {
         const $ = cheerio.load(res.data);
@@ -70,27 +64,25 @@ router.get("/:span/:sign", (req, resp) => {
         const sc = desc.replace("\n", "");
         const obj = {
           date:
-            f === "daily"
+            span === "daily"
               ? `${dt[2]} ${dt[1]} ${dt[0]} ${dt[3]}`
-              : f === "weekly"
+              : span === "weekly"
               ? `${dt[1]} - ${dt[3]} ${dt[0]}`
-              : f === "monthly"
+              : span === "monthly"
               ? `${dt[0]} ${dt[1]}`
               : `${dt[0]} ${dt[1]} ${dt[2]}`,
           sun_sign: dt[dt.length - 5],
           prediction: sc,
-          ip: aip[0],
         };
-        resp.send(obj);
+        response.send(obj);
       });
-    } else {
+    } catch {
       const failobj = {
-        message: req.params.sign + " is meant to be a zodiac sign",
+        message: sign + " is meant to be a zodiac sign",
         other: n,
       };
 
-      resp.send(failobj);
+      response.send(failobj);
     }
   }
-});
-module.exports = router;
+};
