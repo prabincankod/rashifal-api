@@ -74,15 +74,30 @@ export default async (req: VercelRequest, response: VercelResponse) => {
           sun_sign: dt[dt.length - 5],
           prediction: sc,
         };
-        response.send(obj);
+        response.setHeader('Access-Control-Allow-Credentials', true)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  response.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version')
+        response.end(obj);
       });
     } catch {
       const failobj = {
         message: sign + " is meant to be a zodiac sign",
         other: n,
       };
-
-      response.send(failobj);
+response.setHeader('Access-Control-Allow-Credentials', true)
+  response.setHeader('Access-Control-Allow-Origin', '*')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  response.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version')
+      response.end(failobj);
     }
   }
 };
