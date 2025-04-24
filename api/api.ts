@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import axios from "axios";
-import cheerio from "cheerio";
+import * as cheerio from 'cheerio';
 
 export default async (req: VercelRequest, response: VercelResponse) => {
   const spans = ["daily", "weekly", "monthly", "yearly"];
