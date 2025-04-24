@@ -11,7 +11,7 @@ export default async (req: VercelRequest, response: VercelResponse) => {
   const obj1 = {
     message: "/api/:span can only have daily, weekly, monthly or yearly",
   };
-  if (!spaen.includes(span)) return response.send(obj1);
+  if (!spaen.includes(span as string)) return response.send(obj1);
   else {
     switch (sign) {
       case "aries":
@@ -74,30 +74,15 @@ export default async (req: VercelRequest, response: VercelResponse) => {
           sun_sign: dt[dt.length - 5],
           prediction: sc,
         };
-        response.setHeader('Access-Control-Allow-Credentials', true)
-  response.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  response.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version')
-        response.end(obj);
+        response.send(obj);
       });
     } catch {
       const failobj = {
         message: sign + " is meant to be a zodiac sign",
         other: n,
       };
-response.setHeader('Access-Control-Allow-Credentials', true)
-  response.setHeader('Access-Control-Allow-Origin', '*')
-  // another common pattern
-  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-  response.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
-  response.setHeader(
-    'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version')
-      response.end(failobj);
+
+      response.send(failobj);
     }
   }
 };
