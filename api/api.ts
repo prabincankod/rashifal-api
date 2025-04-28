@@ -63,7 +63,7 @@ export default async (req: VercelRequest, response: VercelResponse) => {
 
       try {
         const url = `https://www.hamropatro.com/rashifal/${span}/${nepaliSign}`;
-        console.log(url);
+
         axios.get(url).then((res) => {
           const $ = cheerio.load(res.data);
           const desc = $(".desc").find("p").text();
