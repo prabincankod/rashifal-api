@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "https://github.com/prabincankod/rashifal-api/tree/migrating-to-serverless"
+      "destination": "https://github.com/prabincankod/rashifal-api/"
     }
   ],"headers": [
     {
