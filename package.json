@@ -15,11 +15,7 @@
   },
   "homepage": "https://github.com/prabincankod/rashifal-api#readme",
   "dependencies": {
-
     "@vercel/node": "^1.15.4",
-
-
-    "axios": "^1.6.4",
     "cheerio": "^1.0.0"
   },
   "devDependencies": {
