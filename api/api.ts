@@ -1,5 +1,4 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import axios from "axios";
 import * as cheerio from "cheerio";
 
 const signMap: Record<string, string> = {
@@ -24,7 +23,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
 
   if (!span || typeof span !== "string" || !spans.includes(span)) {
     return res.status(400).send({
-      message: "/api/:span can only have daily, weekly, monthly or yearly",
+      message: "span can only be one of daily, weekly, monthly or yearly",
     });
   }
 
@@ -36,9 +35,10 @@ export default async (req: VercelRequest, res: VercelResponse) => {
   const url = `https://www.hamropatro.com/rashifal/${span}/${nepaliSign}`;
 
   try {
-    const response = await axios.get(url);
-    const $ = cheerio.load(response.data);
+    const response = await fetch(url);
+    const html = await response.text();
 
+    const $ = cheerio.load(html);
     const desc = $(".desc").find("p").text().replace("\n", "").trim();
     const date = $(".articleTitleNew").find("span").text();
     const dt = date.split(" ");
@@ -50,7 +50,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
         ? `${dt[1]} - ${dt[3]} ${dt[0]}`
         : span === "monthly"
         ? `${dt[0]} ${dt[1]}`
-        : `${dt[0]} ${dt[1]} ${dt[2]}`; // yearly
+        : `${dt[0]} ${dt[1]} ${dt[2]}`;
 
     const sunSign = dt[dt.length - 5];
 
@@ -59,7 +59,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
       sun_sign: sunSign,
       prediction: desc,
     });
-  } catch (error) {
+  } catch (error: any) {
     return res.status(500).send({
       message: `Failed to fetch rashifal for ${sign}`,
       nepaliSign,
