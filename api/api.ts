@@ -39,7 +39,7 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const html = await response.text();
 
     const $ = cheerio.load(html);
-    const desc = $(".desc").find("p").text().replace("\n", "").trim();
+    const desc = $("article").find("p")[1].text().replace("\n", "").trim();
     const date = $(".articleTitleNew").find("span").text();
     const dt = date.split(" ");
 
