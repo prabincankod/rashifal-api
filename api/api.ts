@@ -39,24 +39,14 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const html = await response.text();
 
     const $ = cheerio.load(html);
-    const desc = $("article").find("p")[1].text().replace("\n", "").trim();
-    const date = $(".articleTitleNew").find("span").text();
-    const dt = date.split(" ");
-
-    const formattedDate =
-      span === "daily"
-        ? `${dt[2]} ${dt[1]} ${dt[0]} ${dt[3]}`
-        : span === "weekly"
-        ? `${dt[1]} - ${dt[3]} ${dt[0]}`
-        : span === "monthly"
-        ? `${dt[0]} ${dt[1]}`
-        : `${dt[0]} ${dt[1]} ${dt[2]}`;
+    const desc = $("article > p").eq(1).text().replace("\n", "").trim();
+    const date = $("article > header > span").eq(1).text()
 
     const sunSign = dt[dt.length - 5];
 
     return res.send({
-      date: formattedDate,
-      sun_sign: sunSign,
+      date: date,
+      sun_sign: signMap[sign],
       prediction: desc,
     });
   } catch (error: any) {
