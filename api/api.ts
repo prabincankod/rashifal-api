@@ -42,7 +42,6 @@ export default async (req: VercelRequest, res: VercelResponse) => {
     const desc = $("article > p").eq(1).text().replace("\n", "").trim();
     const date = $("article > header > span").eq(1).text()
 
-    const sunSign = dt[dt.length - 5];
 
     return res.send({
       date: date,
